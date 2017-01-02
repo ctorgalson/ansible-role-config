@@ -1,0 +1,16 @@
+---
+config_home_dir: "/Users"
+config_users: []
+  # - {
+  #   user: "someuser",
+  #   group: "somegroup"
+  # }
+config_config_dir_name: ".ansible-managed-config"
+config_dotfiles_repo: "https://github.com/ctorgalson/dotfiles.git"
+config_dotfiles_dir_name: "dotfiles"
+config_linked_dotfiles: []
+  # - .bash_profile
+  # - .gitconfig
+  # - .vimrc.after
+config_compiz_config_file_name: "compiz.profile"
+config_compiz_use_ini_backend: True
