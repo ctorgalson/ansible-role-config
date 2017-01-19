@@ -4,6 +4,7 @@
     repo: "{{ config_ssh_repo }}"
     dest: "{{ config_home_dir }}/{{ item.user }}/{{config_config_dir_name }}/{{ config_ssh_dir_name }}"
     update: yes
+    accept_hostkey: yes
   with_items: "{{ config_users }}"
 
 - name: Ensure correct ownership of config directory and contents.
