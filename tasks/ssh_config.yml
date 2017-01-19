@@ -1,0 +1,33 @@
+---
+- name: Clone ssh config file to local system.
+  git:
+    repo: "{{ config_ssh_repo }}"
+    dest: "{{ config_home_dir }}/{{ item.user }}/{{config_config_dir_name }}/{{ config_ssh_dir_name }}"
+    update: yes
+  with_items: "{{ config_users }}"
+
+- name: Ensure correct ownership of config directory and contents.
+  file:
+    path: "{{ config_home_dir }}/{{ item.user }}/{{config_config_dir_name }}/{{ config_ssh_dir_name }}"
+    owner: "{{ item.user }}"
+    group: "{{ item.group }}"
+  with_items: "{{ config_users }}"
+
+- name: Link config file into users' `.ssh` directories.
+  file:
+    src: "{{ config_home_dir }}/{{ item.user }}/{{config_config_dir_name }}/{{ config_ssh_dir_name }}/config"
+    dest: "{{ config_home_dir }}/{{ item.user }}/.ssh/config"
+    state: link
+    force: yes
+  with_items: "{{ config_users }}"
+  when: config_ssh_assemble_files == False
+
+- name: Assemble files into users' `.ssh` directories.
+  assemble:
+    src: "{{ config_home_dir }}/{{ item.user }}/{{config_config_dir_name }}/{{ config_ssh_dir_name }}/conf.d"
+    dest: "{{ config_home_dir }}/{{ item.user }}/.ssh/config"
+    owner: "{{ item.user }}"
+    group: "{{ item.group }}"
+    delimiter: "{{ config_ssh_assemble_separator }}"
+    ignore_hidden: True
+  when: config_ssh_assemble_files == True
