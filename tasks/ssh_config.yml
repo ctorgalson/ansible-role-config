@@ -31,4 +31,5 @@
     group: "{{ item.group }}"
     delimiter: "{{ config_ssh_assemble_separator }}"
     ignore_hidden: True
+  with_items: "{{ config_users }}"
   when: config_ssh_assemble_files == True
