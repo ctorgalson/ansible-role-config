@@ -1,6 +1,5 @@
 ---
 # Global tasks.
-
 - name: Ensure config directory exists.
   file:
     path: "{{ config_home_dir }}/{{ item.user }}/{{ config_config_dir_name }}"
@@ -9,34 +8,11 @@
     group: "{{ item.group }}"
   with_items: "{{ config_users }}"
 
-- name: Clone dotfiles repo to local system.
-  git:
-    repo: "{{ config_dotfiles_repo }}"
-    dest: "{{ config_home_dir }}/{{ item.user }}/{{ config_config_dir_name }}/{{ config_dotfiles_dir_name }}"
-    update: yes
-    force: yes
-    accept_hostkey: yes
-  with_items: "{{ config_users }}"
+- name: Import and link *nix style dotfiles.
+  include: dotfiles_config.yml
 
-- name: Change ownership of cloned repo.
-  file:
-    path: "{{ config_home_dir }}/{{ item.user }}/{{ config_config_dir_name }}"
-    owner: "{{ item.user }}"
-    group: "{{ item.group }}"
-    recurse: True
-  with_items: "{{ config_users }}"
-
-- name: Link dotfiles from repo into place.
-  file:
-    src:  "{{ config_home_dir }}/{{ item.0.user }}/{{ config_config_dir_name }}/{{ config_dotfiles_dir_name }}/{{ item.1 }}"
-    dest: "{{ config_home_dir }}/{{ item.0.user }}/{{ item.1 }}"
-    state: link
-    force: yes
-    owner: "{{ item.0.user }}"
-    group: "{{ item.0.group }}"
-  with_nested:
-    - "{{ config_users }}"
-    - "{{ config_linked_dotfiles }}"
+- name: Import and link ssh config file.
+  include: ssh_config.yml
 
 # OS-specific tasks.
 
@@ -44,6 +20,6 @@
   include: macos_config.yml
   when: ansible_os_family == "Darwin"
 
-- name: Run Ubuntu specific tasks.
-  include: ubuntu_config.yml
+- name: Run Ubuntu Compiz config.
+  include: compiz_config.yml
   when: ansible_os_family == "Debian"
