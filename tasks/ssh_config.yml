@@ -6,6 +6,7 @@
     update: yes
     accept_hostkey: yes
   with_items: "{{ config_users }}"
+  become: "{{ item.user }}"
 
 - name: Ensure correct ownership of config directory and contents.
   file:
