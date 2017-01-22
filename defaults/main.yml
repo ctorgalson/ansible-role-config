@@ -9,6 +9,7 @@ config_config_dir_name: ".ansible-managed-config"
 config_dotfiles_repo: "https://github.com/ctorgalson/dotfiles.git"
 config_dotfiles_dir_name: "dotfiles"
 config_linked_dotfiles: []
+config_ssh_config: True
 #  - ".bash_profile",
 #  - ".gitconfig",
 #  - ".vimrc.after"

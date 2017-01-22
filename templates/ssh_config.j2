@@ -1,0 +1,6 @@
+{% for host in hosts %}
+{% for comment in hosts.comments %}
+# {{ comment }}
+{% endfor %}
+{{ hosts.properties }}
+{% endfor %}

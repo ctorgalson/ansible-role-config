@@ -1,0 +1,12 @@
+---
+- include_vars: vault.yml
+
+- name: Template ssh config file to system.
+  template:
+    src: ssh_config.j2
+    dest: "{{ config_home_dir }}/{{ item.user }}/.ssh/config"
+    owner: "{{ item.user }}"
+    group: "{{ item.group }}"
+    backup: yes
+  with_items: "{{ config_users }}"
+  when: config_ssh_config

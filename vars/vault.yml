@@ -1,0 +1,12 @@
+---
+hosts:
+  - {
+    comments:
+      - "bedlamhost.com"
+      - "PROD: bedlamhost.com"
+    properties: |
+      Host bhost
+        Hostname bedlamhost.com
+        Port 2022
+        User bedlamho
+  }
