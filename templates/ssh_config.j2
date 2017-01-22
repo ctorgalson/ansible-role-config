@@ -1,6 +1,4 @@
 {% for host in hosts %}
-{% for comment in hosts.comments %}
-# {{ comment }}
-{% endfor %}
-{{ hosts.properties }}
+Host {{ host.name }}
+{{ host.properties | indent(width=2, indentfirst=True) }}
 {% endfor %}

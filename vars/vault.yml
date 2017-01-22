@@ -1,12 +1,10 @@
 ---
 hosts:
-  - {
-    comments:
-      - "bedlamhost.com"
-      - "PROD: bedlamhost.com"
+  - name: bhost
     properties: |
-      Host bhost
-        Hostname bedlamhost.com
-        Port 2022
-        User bedlamho
-  }
+      # bedlamhost.com
+      #
+      # PROD: bedlamhost.com
+      Hostname bedlamhost.com
+      Port 2022
+      User bedlamho
