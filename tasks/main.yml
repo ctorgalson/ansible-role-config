@@ -8,8 +8,11 @@
     group: "{{ item.group }}"
   with_items: "{{ config_users }}"
 
-- name: Import and link *nix style dotfiles (and ssh config file).
+- name: Import and link *nix style dotfiles.
   include: dotfiles_config.yml
+
+- name: Template ~/.ssh/config into place for users.
+  include: ssh_config.yml
 
 # OS-specific tasks.
 
