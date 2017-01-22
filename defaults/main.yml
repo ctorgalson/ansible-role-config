@@ -13,7 +13,3 @@ config_linked_dotfiles: []
   # - .gitconfig
   # - .vimrc.after
   # - config
-config_ssh_repo: "git@bitbucket.org:ctorgalson/ssh-config.git"
-config_ssh_dir_name: "ssh-config"
-config_ssh_assemble_files: False
-config_ssh_assemble_separator: "### Fragment delimiter ###"

@@ -8,18 +8,11 @@
     group: "{{ item.group }}"
   with_items: "{{ config_users }}"
 
-- name: Import and link *nix style dotfiles.
+- name: Import and link *nix style dotfiles (and ssh config file).
   include: dotfiles_config.yml
-
-- name: Import and link ssh config file.
-  include: ssh_config.yml
 
 # OS-specific tasks.
 
 - name: Run macOS specific tasks.
   include: macos_config.yml
   when: ansible_os_family == "Darwin"
-
-- name: Run Ubuntu Compiz config.
-  include: compiz_config.yml
-  when: ansible_os_family == "Debian"
