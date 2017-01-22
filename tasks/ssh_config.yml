@@ -1,5 +1,5 @@
 ---
-- include_vars: vault.yml
+- include_vars: vars/vault.yml
 
 - name: Template ssh config file to system.
   template:
