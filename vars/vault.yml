@@ -8,7 +8,7 @@ hosts:
     comments: |
       # bedlamhost.com
       #
-      # PROD: ibleUndefinedVariable: 'dict object' has no attribute edlamhost.com
+      # PROD: bedlamhost.com
   - properties: |
       Host bhstats
         Hostname stats-bhotel.rhcloud.com
