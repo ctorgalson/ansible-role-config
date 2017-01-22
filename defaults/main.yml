@@ -12,6 +12,7 @@ config_linked_dotfiles: []
   # - .bash_profile
   # - .gitconfig
   # - .vimrc.after
+  # - config
 config_compiz_config_file_name: "compiz.profile"
 config_compiz_use_ini_backend: True
 config_ssh_repo: "git@bitbucket.org:ctorgalson/ssh-config.git"
