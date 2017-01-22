@@ -25,7 +25,7 @@ Planned additions include:
 | `config_dotfiles_dir_name` | `dotfiles` | The name of the directory to clone the `dotfiles` repo to (corresponds to the last directory in `dest` in and Ansible Git module task. |
 | `config_dotfiles_repo` | `https://github.com/ctorgalson/dotfiles.git` | The url to a dotfiles repo (mine probably won't be that useful to you). |
 | `config_home_dir` | `/Users` | The home directory on the current system--the default corresponds to macOS directory structure; change to `/home` on most linux distros. |
-| `config_linked_dotfiles` | `[]` | The specific dotfiles in the `dotfiles` repo to symlink into users' home directories. |
+| `config_linked_dotfiles` | `[]` | The specific dotfiles in the `dotfiles` repo to symlink into users' home directories. Note that this should be an array of **paths** (relative to `~` to the files in question. E.g., for an ssh config file the path should be `.ssh/config` so that the file will be linked to `/home/username/.ssh/config`. |
 | `config_users` | `[]` | The list of users to run this role for. |
 
 ## License
