@@ -8,7 +8,7 @@ hosts:
     comments: |
       # bedlamhost.com
       #
-      # PROD: bedlamhost.com
+      # PROD: ibleUndefinedVariable: 'dict object' has no attribute edlamhost.com
   - properties: |
       Host bhstats
         Hostname stats-bhotel.rhcloud.com
@@ -27,5 +27,5 @@ hosts:
         Hostname canopticon.ca
         Port 2022
         user canoptic
-  - comments: |
+    comments: |
       # Not currently in use. Remove from file at next maintenance.
