@@ -13,7 +13,7 @@
 
 - name: Copy ssh config file into place (Ansible should decrypt it if needed).
   copy:
-    src: "{{ config_ssh_config_src_path }}"
+    src: "{{ config_home_dir }}/{{ item.user }}/{{ config_config_dir_name }}/{{ config_dotfiles_dir_name }}/config"
     dest: "{{ config_home_dir }}/{{ item.user }}/.ssh/config"
     owner: "{{ item.user }}"
     group: "{{ item.group }}"
