@@ -11,8 +11,8 @@
 - name: Import and link *nix style dotfiles.
   include: dotfiles_config.yml
 
-# - name: Template a .ssh config file into place.
-#   include: ssh_config.yml
+- name: Template a .ssh config file into place.
+  include: ssh_config.yml
 
 # OS-specific tasks.
 

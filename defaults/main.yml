@@ -12,8 +12,8 @@ config_linked_dotfiles: []
 #  - ".bash_profile",
 #  - ".gitconfig",
 #  - ".vimrc.after"
-#  - ".ssh/config"
 config_ssh_config: True
+config_ssh_config_src_path: "{{ config_config_dir_name }}/{{ dotfiles }}/config"
 # The following variables should probably be source from an ansible-encrypted
 # vault file and decrypted at runtime with --ask-vault-pass or a password file.
 hosts: []
