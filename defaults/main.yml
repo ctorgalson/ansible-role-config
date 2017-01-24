@@ -9,8 +9,19 @@ config_config_dir_name: ".ansible-managed-config"
 config_dotfiles_repo: "https://github.com/ctorgalson/dotfiles.git"
 config_dotfiles_dir_name: "dotfiles"
 config_linked_dotfiles: []
-config_ssh_config: True
 #  - ".bash_profile",
 #  - ".gitconfig",
 #  - ".vimrc.after"
 #  - ".ssh/config"
+config_ssh_config: True
+# The following variables should probably be source from an ansible-encrypted
+# vault file and decrypted at runtime with --ask-vault-pass or a password file.
+hosts: []
+#  - properties: |
+#      Host hostname
+#        Hostname hostname.com
+#        Port 1234
+#        User catflap
+#    comments: |
+#      # These lines of comments will be prepended
+#      # to the properties as a block.

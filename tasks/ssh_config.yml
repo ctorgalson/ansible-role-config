@@ -8,5 +8,5 @@
     owner: "{{ item.user }}"
     group: "{{ item.group }}"
     backup: yes
-  with_items: "{{ config_users }}"
+  with_items: "{{ config_users | default([]) }}"
   when: config_ssh_config
