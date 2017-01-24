@@ -1,16 +1,4 @@
 ---
-# - include_vars: vars/vault.yml
-# 
-# - name: Template ssh config file to system.
-#   template:
-#     src: ssh_config.j2
-#     dest: "{{ config_home_dir }}/{{ item.user }}/.ssh/config"
-#     owner: "{{ item.user }}"
-#     group: "{{ item.group }}"
-#     backup: yes
-#   with_items: "{{ config_users | default([]) }}"
-#   when: config_ssh_config
-
 - name: Copy ssh config file into place (Ansible should decrypt it if needed).
   copy:
     src: "{{ config_home_dir }}/{{ item.user }}/{{ config_config_dir_name }}/{{ config_dotfiles_dir_name }}/config"
