@@ -24,7 +24,10 @@ Planned additions include:
 | `config_dotfiles_repo` | `https://github.com/ctorgalson/dotfiles.git` | The url to a dotfiles repo (mine probably won't be that useful to you). |
 | `config_home_dir` | `/Users` | The home directory on the current system--the default corresponds to macOS directory structure; change to `/home` on most linux distros. |
 | `config_linked_dotfiles` | `[]` | The specific dotfiles in the `dotfiles` repo to symlink into users' home directories. Note that this should be an array of **paths** (relative to `~` to the files in question. E.g., for an ssh config file the path should be `.ssh/config` so that the file will be linked to `/home/username/.ssh/config`. |
-| `config_ssh_config` | `True` | Whether or not to run the `ssh_config.yml` task and copy a file from a dotfiles repo to `/Users/username/.ssh/config`. |
+| `config_ssh_config` | `false` | Whether or not to run the `ssh_config.yml` task and copy a file from a dotfiles repo to `/Users/username/.ssh/config`. |
+| `config_ssh_config_repo` | `""` | Url to a repository containing an ssh config file named `config` in the root. Only required when `config_ssh_config` is set to `true`. |
+| `config_ssh_config_dir_name` | `ssh-config` | The name of the directory to clone the `ssh-config` repo to. Only required when `config_ssh_config` is set to `true`. |
+| `config_ssh_config_state` | "copy" | Whether to copy or symlnk the ssh config file into place. Should be set to `copy` or `link`, but is not used unless `config_ssh_config` is set to `true`. |
 | `config_users` | `[]` | The list of users to run this role for. |
 
 ## License
