@@ -6,8 +6,9 @@
     update: yes
     force: yes
     accept_hostkey: yes
+    key_file: "{{ config_ssh_config_key_file }}"
   with_items: "{{ config_users }}"
-  when: "{{ config_ssh_config }}"
+  when: config_ssh_config
 
 - name: Copy ssh config file into place (Ansible should decrypt it if needed).
   copy:
@@ -16,7 +17,7 @@
     owner: "{{ item.user }}"
     group: "{{ item.group }}"
   with_items: "{{ config_users }}"
-  when: "{{ config_ssh_config }} and '{{ config_ssh_config_state }}' == 'copy'"
+  when: config_ssh_config and (config_ssh_config_state == 'copy')
 
 - name: Link ssh config file into place (use if config will not be encrypted).
   file:
@@ -26,4 +27,4 @@
     group: "{{ item.group }}"
     state: link
   with_items: "{{ config_users }}"
-  when: "{{ config_ssh_config }} and '{{ config_ssh_config_state }}' == 'link'"
+  when: config_ssh_config and (config_ssh_config_state == 'link')
